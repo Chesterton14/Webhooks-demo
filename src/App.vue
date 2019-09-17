@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Webhook test"/>
+    <HelloWorld msg="Webhook test"/> 
   </div>
 </template>
 
