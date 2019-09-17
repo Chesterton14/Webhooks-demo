@@ -18,4 +18,14 @@ handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref)
+  run_cmd('sh', ['./autoBuild.sh'], function(text){ console.log(text) });
 })
+
+function run_cmd(cmd, args, callback) {
+    var spawn = require('child_process').spawn;
+    var child = spawn(cmd, args);
+    var resp = "";
+
+    child.stdout.on('data', function(buffer) { resp += buffer.toString(); });
+    child.stdout.on('end', function() { callback (resp) });
+}
